@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>Homework 2 | Calculator</title>
+        <link rel="stylesheet" type="text/css" href="../css/top_bar.css">
+        <link rel="stylesheet" type="text/css" href="../css/calculator.css">
+        <link href="https://fonts.googleapis.com/css?family=Imprima" rel="stylesheet">
+    </head>
+    <body>
+        <div id="top_bar">
+            <a id="website_title" href="./index.html">Homework 2</a>
+            <a href="">Our team</a>
+            <a href="">How to decrypt</a>
+            <a href="../index.html">Home</a>
+        </div>
+        <div id="main_content">
+            <p style="color: #737373">Congratulation you have entered to the calculator page</p>
+            <p style="color: red">If you exit this page you will need to redecrypt the random encryption string.</p>
+            <p style="color: #737373">This calculator helps you to convert numbers with different bases</p>
+            <div id="number_input_div">
+                <div>
+                    <label id="insert_number_here">Insert number here:</label>
+                    <input id="inserted_num" type="text" placeholder="Number to convert"/>
+                </div>
+                <div>
+                    <label id="base_title">From base:</label>
+                    <select id="choosen_Frombase">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10" selected>10</option>
+                    </select>
+                </div>
+                <div>
+                    <label id="base_title">To base:</label>
+                    <select id="choosen_Tobase">
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div>
+                    <button id="ConvertBtn">Convert</button>
+                </div>
+            </div>
+            <div id="convert_result_div">
+                <div>
+                    <label id="result_title">The result is</label>
+                </div>
+                <div>
+                    <label id="result"></label>
+                </div>
+            </div>
+            <p id="wrong_number"></p>
+        </div>
+    </body>
+</html>
+<script>
+    window.onload = function()
+    {
+        if(localStorage.getItem("has_permission") == 0)
+        {
+            window.location.href = "../index.html";
+        }
+    }
+
+    var convert_btn = document.getElementById("ConvertBtn");
+    convert_btn.onclick = function()
+    {
+        document.getElementById("convert_result_div").style.display = "none";
+        setTimeout(function() {
+            get_result();
+        }, 1); 
+    }
+
+    function get_result()
+    {
+        document.getElementById("wrong_number").style.display = "none";
+        var number = document.getElementById("inserted_num");
+        var from_base = document.getElementById("choosen_Frombase");
+        var to_base = document.getElementById("choosen_Tobase");
+        if(!number.value)
+        {
+            document.getElementById("wrong_number").innerText = "Please insert a number.";
+            document.getElementById("wrong_number").style.display = "block";
+            return;
+        }
+        if(parseInt(number.value, from_base.value).toString(to_base.value) == "NaN")
+        {
+            document.getElementById("wrong_number").innerText = "Wrong number: Can't convert that numebr to this base.";
+            document.getElementById("wrong_number").style.display = "block";
+            return;
+        }
+        document.getElementById("result").innerText = parseInt(number.value, from_base.value).toString(to_base.value);
+        document.getElementById("convert_result_div").style.display = "block";
+    }
+</script>
