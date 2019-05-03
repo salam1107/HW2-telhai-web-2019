@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>Homework 2 | Home Page</title>
+        <link rel="stylesheet" type="text/css" href="./css/top_bar.css">
+        <link rel="stylesheet" type="text/css" href="./css/home_page.css">
+        <link href="https://fonts.googleapis.com/css?family=Imprima" rel="stylesheet">
+    </head>
+    <body>
+        <div id="top_bar">
+            <a id="website_title" href="./index.html">Homework 2</a>
+            <a href="">Our team</a>
+            <a href="">How to decrypt</a>
+            <a href="./index.html">Home</a>
+        </div>
+        <div id="main_content">
+            <p style="color: #737373">This is a calculator website</p>
+            <p style="color: #737373">In order to enter to the calculator page you need to solve this random string encryption</p>
+            <br/>
+            <div id="random_string_div">
+                <label id="random_string_title">The random string is:</label>
+                <label id="random_string"></label>
+                <button id="generate_anotherBtn">Generate another</button>
+            </div>
+            <br/>
+            <p style="color: #737373">Please insert the decryption string in the TEXTAREA and click CHECK</p>
+            <div id="decryption_string_div">
+                <label id="decryption_string_title">Decryption string is:</label>
+                <input id="decryption_string" type="text" placeholder="Insert the decrypted string here"/>
+                <button id="checkBtn">Check</button>
+            </div>
+            <p id="wrong_decrypt"></p>
+        </div>
+    </body>
+</html>
+<script>
+    localStorage.setItem("has_permission", 0);
+    var random_string_label = document.getElementById("random_string");
+    random_string_label.innerText = createRandomString();
+
+    var generate_another_button = document.getElementById("generate_anotherBtn");
+    generate_another_button.onclick = function()
+    {
+        random_string_label.style.display = "none";
+        setTimeout(function(){
+            random_string_label.innerText = createRandomString();
+        }, 1);
+    }
+
+    var check_button = document.getElementById("checkBtn");
+    var decrypted_string = document.getElementById("decryption_string");
+    check_button.onclick = function()
+    {
+        document.getElementById("wrong_decrypt").style.display = "none";
+        setTimeout(function(){
+            checkDecryptedString(decrypted_string.value);
+        }, 1);
+    }
+
+    function createRandomString() //string length is between 6 to 19
+    {
+        var Mmin = 6;
+        var Mmax = 19;
+        var random_string = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for(let i=0; i<(Math.random()*(Mmax-Mmin+1)+Mmin-1); i++)
+        {
+            random_string += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        random_string_label.style.display = "inline-grid";
+        return random_string;
+    }
+
+    function checkDecryptedString(string)
+    {
+        var encrypted_string = "";
+        for(let i=0; i<string.length; i++)
+        {
+            var c = string.charAt(i);
+            if(c >= 'a' && c <= 'z') //if c between a-z
+            {
+                c = c.charCodeAt(0) - 3;
+                if('a'.charCodeAt(0) - c > 0)
+                    c = 'z'.charCodeAt(0) - ('a'.charCodeAt(0) - c) + 1;
+            }
+            else if(c >= 'A' && c <= 'Z') //if c between A-Z
+            {
+                c = c.charCodeAt(0) - 3;
+                if('A'.charCodeAt(0) - c > 0)
+                    c = 'Z'.charCodeAt(0) - ('A'.charCodeAt(0) - c) + 1;
+            }
+            else if(c > '0' && c <= '9') //if c is digit between 1-9
+            {
+                var digit = c - '0'.charCodeAt(0);
+                digit = Math.abs(digit - 10);
+                c = digit;
+            }
+            else if(c == '0') //if c=0
+                c = '0'.charCodeAt(0);
+            else
+            {
+                c = c.charCodeAt(0);
+            }
+            encrypted_string += String.fromCharCode(c);
+        }
+        if(encrypted_string != random_string_label.textContent)
+        {
+            document.getElementById("decryption_string").style.border = "1px solid red";
+            document.getElementById("decryption_string").style.boxShadow = "0px 0px 2px 1px red";
+            document.getElementById("wrong_decrypt").style.display = "block";
+            document.getElementById("wrong_decrypt").innerText = "Wrong decryption string";
+        }
+        else
+        {
+            localStorage.setItem("has_permission", 1);
+            window.location.href = "./pages/calculator.html";
+        }
+    }
+
+</script>
