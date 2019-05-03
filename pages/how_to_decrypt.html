@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Homework 2 | How to decrypt</title>
+        <link rel="stylesheet" type="text/css" href="../css/top_bar.css">
+        <link rel="stylesheet" type="text/css" href="../css/how_to.css">
+        <link href="https://fonts.googleapis.com/css?family=Imprima" rel="stylesheet">
+    </head>
+    <body>
+        <div id="top_bar">
+            <a id="website_title" href="../index.html">Homework 2</a>
+            <a href="./our_team.html">Our team</a>
+            <a href="./how_to_decrypt.html">How to decrypt</a>
+            <a href="../index.html">Home</a>
+        </div>
+        <div id="main_content">
+            <p style="color: #737373">How to decrypt an encrption string</p>
+            <ul>
+                <li>
+                    If it is an English letter: move it forward, circularly, at 3.<br>
+                    For example, a becomes d, z becomes c, etc.
+                </li><br>
+                <li>
+                    If the character is a digit, we call it n, the character becomes its inverse digit relative to 10.<br>
+                    For example, 9 becomes 1, 2 becomes 8, etc.<br>
+                    0 will remain 0.
+                </li><br>
+                <li>
+                    If the character is a period or comma, and its position in the string is k,<br>
+                    Then replace it with the character in the index m-k-1.<br>
+                    For example, if the string is abcd. the new string will be .efgd when the dot is in 4th place
+                    Replaced with the 0 character.<br>
+                    Note that the following string: .a,<br>
+                    Will become this string: ,d. <br>
+                    That says, that the point and the comma were replaced only once.
+                </li><br>
+            </ul>
+        </div>
+    </body>
+</html>
