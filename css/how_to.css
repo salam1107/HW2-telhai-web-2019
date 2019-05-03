@@ -1,0 +1,21 @@
+body
+{
+    background-color: #222;
+    font-family: Imprima;
+}
+
+#main_content
+{
+    position: relative;
+    top: 100px;
+    margin: 0 auto;
+    width: 70%;
+    height: auto;
+    background-color: #090909;
+    box-shadow: 0px 0px 10px #090909;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+}

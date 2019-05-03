@@ -5,6 +5,7 @@
     left: 0px;
     width: 100%;
     background-color: #427aa1;
+    z-index: 100;
 }
 
 #top_bar a
