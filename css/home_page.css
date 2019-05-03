@@ -1,0 +1,93 @@
+body
+{
+    background-color: #222;
+    font-family: Imprima;
+}
+
+#main_content
+{
+    position: relative;
+    top: 100px;
+    margin: 0 auto;
+    width: 70%;
+    height: auto;
+    background-color: #090909;
+    box-shadow: 0px 0px 10px #090909;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+}
+
+#random_string_div, #decryption_string_div
+{
+    background-color: #3b6c8f;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#random_string_title, #decryption_string_title
+{
+    font-weight: bold;
+    display: inline-grid;
+    vertical-align: middle;
+}
+
+#random_string, #decryption_string
+{
+    display: "block";
+    padding: 10px;
+    color: black;
+    border: 1px solid black;
+    display: inline-grid;
+    outline: none;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 250px;
+}
+
+#random_string
+{
+    padding: 10px 0px 10px 0px;
+    animation: width_change 5s;
+}
+
+#generate_anotherBtn, #checkBtn
+{
+    float: right;
+    padding: 13px;
+    background-color: #ccc;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-weight: bold;
+    outline: none;
+}
+
+#generate_anotherBtn:hover, #checkBtn:hover
+{
+    opacity: 0.7;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+#wrong_decrypt
+{
+    display: none;
+    color: red;
+    animation: chnage_color;
+    animation-duration: 1s;
+}
+
+@keyframes chnage_color 
+{
+    from {color: black;}
+    to {color: red;}
+}
+
+@keyframes width_change 
+{
+    from {width: 0px;}
+    to {width: 250px;}
+}
