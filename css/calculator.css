@@ -1,6 +1,6 @@
 body
 {
-    background-color: #222;
+    background-color: #ffcc00;
     font-family: Imprima;
 }
 
@@ -11,9 +11,9 @@ body
     margin: 0 auto;
     width: 70%;
     height: auto;
-    background-color: #090909;
-    box-shadow: 0px 0px 10px #090909;
-    color: white;
+    background-color: #ffcccc;
+    box-shadow: 0px 0px 10px #ffcccc;
+    color: black;
     text-align: center;
     border-radius: 10px;
     padding: 20px;
@@ -22,7 +22,7 @@ body
 
 #number_input_div, #convert_result_div
 {
-    background-color: #3b6c8f;
+    background-color: #ffcc00;
     padding: 10px;
     border-radius: 5px;
     font-size: 20px;
@@ -66,7 +66,7 @@ body
 {
     float: right;
     padding: 13px;
-    background-color: #ccc;
+    background-color: #ffcccc;
     border: 1px solid transparent;
     border-radius: 5px;
     font-weight: bold;
