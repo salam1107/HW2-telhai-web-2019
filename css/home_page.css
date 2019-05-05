@@ -82,8 +82,8 @@ body
 
 @keyframes chnage_color 
 {
-    from {color: black;}
-    to {color: red;}
+    from {color: white;}
+    to {color: #ff66cc;}
 }
 
 @keyframes width_change 
