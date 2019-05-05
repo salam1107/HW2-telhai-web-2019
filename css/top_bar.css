@@ -4,7 +4,7 @@
     top: 0px;
     left: 0px;
     width: 100%;
-    background-color: #427aa1;
+    background-color: #8f246b;
     z-index: 100;
 }
 
@@ -21,7 +21,7 @@
 
 #top_bar a:hover
 {
-    background-color: #3b6c8f;
+    background-color: #8f246b;
 }
 
 #top_bar #website_title
@@ -31,5 +31,5 @@
 
 #top_bar #website_title:hover
 {
-    background-color: #427aa1;
+    background-color: #cc0099;
 }
