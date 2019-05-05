@@ -36,7 +36,6 @@
     localStorage.setItem("has_permission", 0);
     var random_string_label = document.getElementById("random_string");
     random_string_label.innerText = createRandomString();
-
     var generate_another_button = document.getElementById("generate_anotherBtn");
     generate_another_button.onclick = function()
     {
@@ -45,7 +44,6 @@
             random_string_label.innerText = createRandomString();
         }, 1);
     }
-
     var check_button = document.getElementById("checkBtn");
     var decrypted_string = document.getElementById("decryption_string");
     check_button.onclick = function()
@@ -55,7 +53,6 @@
             checkDecryptedString(decrypted_string.value);
         }, 1);
     }
-
     function createRandomString() //string length is between 6 to 19
     {
         var Mmin = 6;
@@ -69,7 +66,6 @@
         random_string_label.style.display = "inline-grid";
         return random_string;
     }
-
     function checkDecryptedString(string)
     {
         var encrypted_string = "";
@@ -115,5 +111,4 @@
             window.location.href = "./pages/calculator.html";
         }
     }
-
 </script>
